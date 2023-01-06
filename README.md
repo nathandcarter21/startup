@@ -1,4 +1,4 @@
-# startup
+### startup
 
-//hello future nathan
-//HELLO NATHAN
+## Merge Conflicts
+- Fix by checking readme for conflicts and resolving issues.
