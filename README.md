@@ -1,4 +1,5 @@
 # startup
 
-## Merge Conflicts
-- Fix by checking readme for conflicts and resolving issues.
+### Merge Conflicts
+
+- Fix by checking file for conflicts and resolving issues.
