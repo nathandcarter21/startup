@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Recipe Book</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link rel="stylesheet" href="app.css" />
+	</head>
+	<!-- <nav class="flex justify-start gap-10 items-center text-2xl font-mono">
+        <a href="" class="text-4xl">Recipe Book</a>
+		<a href="">Home</a>
+		<a href="/recipes">Recipes</a>
+		<a href="/account">Account</a>
+	</nav> -->
+	<body class="font-mono h-screen flex flex-col justify-between">
+		<nav class="flex">
+			<div class="logo basis-1/2">
+				<a href="" class="text-4xl">Recipe Book</a>
+			</div>
+			<div class="flex links basis-1/2 justify-end gap-10 text-2xl">
+				<a href="/account">Account</a>
+			</div>
+		</nav>
+		<section>
+			<h2 class="text-3xl">My Recipes</h2>
+			<div class="recipeContainer flex">
+				<div class="recipe border-4 rounded-lg border-black p-5 m-3 w-1/4">
+					<h4 class="underline">Recipe 1</h4>
+					<p class="text-sm">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					</p>
+					<a href="#">Link</a><span> </span><span>$$$</span>
+				</div>
+				<div class="recipe border-4 rounded-lg border-black p-5 m-3 w-1/4">
+					<h4 class="underline">Recipe 2</h4>
+					<p class="text-sm">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					</p>
+					<a href="#">Link</a><span> </span><span>$</span>
+				</div>
+				<div class="recipe border-4 rounded-lg border-black p-5 m-3 w-1/4">
+					<h4 class="underline">Recipe 3</h4>
+					<p class="text-sm">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					</p>
+					<a href="#">Link</a><span> </span><span>$$</span>
+				</div>
+				<div
+					class="recipe border-4 rounded-lg border-black p-5 m-3 w-1/4 flex justify-center items-center">
+					<button class="w-20 h-20">
+						<div
+							class="add flex justify-center items-center w-full h-full border-4 rounded-full border-black">
+							<div class="up"></div>
+							<div class="side"></div>
+						</div>
+					</button>
+				</div>
+			</div>
+		</section>
+		<section>
+			<h2 class="text-3xl">Popular Recipes</h2>
+			<div class="recipeContainer flex">
+				<div class="recipe border-4 rounded-lg border-black p-5 m-3 w-1/4">
+					<h4 class="underline">Recipe 1</h4>
+					<p class="text-sm">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					</p>
+					<a href="#">Link</a><span> </span><span>$$$</span>
+				</div>
+				<div class="recipe border-4 rounded-lg border-black p-5 m-3 w-1/4">
+					<h4 class="underline">Recipe 2</h4>
+					<p class="text-sm">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					</p>
+					<a href="#">Link</a><span> </span><span>$</span>
+				</div>
+				<div class="recipe border-4 rounded-lg border-black p-5 m-3 w-1/4">
+					<h4 class="underline">Recipe 3</h4>
+					<p class="text-sm">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					</p>
+					<a href="#">Link</a><span> </span><span>$$</span>
+				</div>
+				<div
+					class="recipe border-4 rounded-lg border-black p-5 m-3 w-1/4 flex justify-center items-center">
+					<button class="w-20 h-20">
+						<div
+							class="add flex justify-center items-center w-full h-full border-4 rounded-full border-black">
+							<div class="up"></div>
+							<div class="side"></div>
+						</div>
+					</button>
+				</div>
+			</div>
+		</section>
+		<section>
+			<h2 class="text-3xl">Search Recipes</h2>
+			<div class="searchContainer flex justify-center items-center">
+				<label for="search" class="text-xl m-3">Search: </label>
+				<input
+					type="text"
+					name="search"
+					id="search"
+					class="border-2 rounded-md border-black px-1" />
+			</div>
+			<div class="recipeContainer flex"></div>
+		</section>
+		<footer class="flex justify-evenly items-center m-5">
+			<a href="">Privacy</a>
+			<a href="">Terms</a>
+			<a href="https://github.com/nathandcarter21/startup">Github</a>
+		</footer>
+	</body>
+</html>
