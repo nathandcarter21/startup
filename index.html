@@ -6,6 +6,21 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Recipe Book</title>
 		<script src="https://cdn.tailwindcss.com"></script>
+		<script>
+			tailwind.config = {
+				theme: {
+					extend: {
+						colors: {
+							primary: "#2A9D8F",
+							secondary: "#E9C46A",
+							dark: "#264653",
+							warning: "#F4A261",
+							danger: "#E76F51",
+						},
+					},
+				},
+			};
+		</script>
 		<link rel="stylesheet" href="app.css" />
 	</head>
 	<!-- <nav class="flex justify-start gap-10 items-center text-2xl font-mono">
@@ -17,7 +32,7 @@
 	<body class="font-mono h-screen flex flex-col justify-between">
 		<nav class="flex">
 			<div class="logo basis-1/2">
-				<a href="" class="text-4xl">Recipe Book</a>
+				<a href="" class="text-4xl text-primary">Recipe Book</a>
 			</div>
 			<div class="flex links basis-1/2 justify-end gap-10 text-2xl">
 				<a href="/account">Account</a>
@@ -33,6 +48,7 @@
 					</p>
 					<a href="#">Link</a><span> </span><span>$$$</span>
 				</div>
+
 				<div class="recipe border-4 rounded-lg border-black p-5 m-3 w-1/4">
 					<h4 class="underline">Recipe 2</h4>
 					<p class="text-sm">
@@ -83,27 +99,26 @@
 					</p>
 					<a href="#">Link</a><span> </span><span>$$</span>
 				</div>
-				<div
-					class="recipe border-4 rounded-lg border-black p-5 m-3 w-1/4 flex justify-center items-center">
-					<button class="w-20 h-20">
-						<div
-							class="add flex justify-center items-center w-full h-full border-4 rounded-full border-black">
-							<div class="up"></div>
-							<div class="side"></div>
-						</div>
-					</button>
+				<div class="recipe border-4 rounded-lg border-black p-5 m-3 w-1/4">
+					<h4 class="underline">Recipe 4</h4>
+					<p class="text-sm">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					</p>
+					<a href="#">Link</a><span> </span><span>$$</span>
 				</div>
 			</div>
 		</section>
 		<section>
 			<h2 class="text-3xl">Search Recipes</h2>
-			<div class="searchContainer flex justify-center items-center">
-				<label for="search" class="text-xl m-3">Search: </label>
-				<input
-					type="text"
-					name="search"
-					id="search"
-					class="border-2 rounded-md border-black px-1" />
+			<div class="searchContainer flex items-center">
+				<form action="#">
+					<input
+						type="text"
+						name="search"
+						id="search"
+						class="border-2 rounded-md border-black px-1 m-3" />
+					<button>Search</button>
+				</form>
 			</div>
 			<div class="recipeContainer flex"></div>
 		</section>
