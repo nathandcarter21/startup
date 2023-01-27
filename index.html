@@ -23,114 +23,36 @@
 		</script>
 		<link rel="stylesheet" href="app.css" />
 	</head>
-	<body
-		class="font-mono h-screen flex flex-col w-100 justify-between bg-[#eaeaea]">
-		<nav class="flex p-5 border-b-2 border-dark w-100">
-			<div class="logo basis-1/2">
-				<a href="" class="text-4xl text-primary">Recipe Book</a>
-			</div>
-			<div
-				class="flex links basis-1/2 justify-end gap-10 text-2xl text-warning">
-				<a href="/account">Account</a>
-			</div>
+	<body class="font-sans h-screen w-100 bg-[#eaeaea] flex flex-col">
+		<nav
+			class="flex p-5 border-b-2 border-dark w-100 justify-between align-center text-4xl text-primary">
+			<a href="">Recipe Book</a>
+			<a href="/account">Account</a>
 		</nav>
-		<section class="m-5">
-			<h2 class="text-3xl text-primary">My Recipes</h2>
-			<div class="recipeContainer flex text-dark">
-				<div class="recipe flex flex-col justify-between">
-					<h4 class="underline">Recipe 1</h4>
-					<p class="text-sm">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					</p>
-					<div class="flex justify-between">
-						<a href="#">Link</a><span>$$$</span>
-					</div>
-				</div>
-				<div class="recipe flex flex-col justify-between">
-					<h4 class="underline">Recipe 1</h4>
-					<p class="text-sm">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					</p>
-					<div class="flex justify-between">
-						<a href="#">Link</a><span>$$$</span>
-					</div>
-				</div>
-				<div class="recipe flex flex-col justify-between">
-					<h4 class="underline">Recipe 1</h4>
-					<p class="text-sm">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					</p>
-					<div class="flex justify-between">
-						<a href="#">Link</a><span>$$$</span>
-					</div>
-				</div>
-				<div class="recipe flex justify-center items-center">
-					<button class="w-20 h-20">
-						<div
-							class="add flex justify-center items-center w-full h-full border-2 rounded-full border-black">
-							<div class="up"></div>
-							<div class="side"></div>
-						</div>
-					</button>
-				</div>
-			</div>
-		</section>
-		<section class="m-5">
-			<h2 class="text-3xl">Popular Recipes</h2>
-			<div class="recipeContainer flex">
-				<div class="recipe flex flex-col justify-between">
-					<h4 class="underline">Recipe 1</h4>
-					<p class="text-sm">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					</p>
-					<div class="flex justify-between">
-						<a href="#">Link</a><span>$$$</span>
-					</div>
-				</div>
-				<div class="recipe flex flex-col justify-between">
-					<h4 class="underline">Recipe 1</h4>
-					<p class="text-sm">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					</p>
-					<div class="flex justify-between">
-						<a href="#">Link</a><span>$$$</span>
-					</div>
-				</div>
-				<div class="recipe flex flex-col justify-between">
-					<h4 class="underline">Recipe 1</h4>
-					<p class="text-sm">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					</p>
-					<div class="flex justify-between">
-						<a href="#">Link</a><span>$$$</span>
-					</div>
-				</div>
-				<div class="recipe flex flex-col justify-between">
-					<h4 class="underline">Recipe 1</h4>
-					<p class="text-sm">
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-					</p>
-					<div class="flex justify-between">
-						<a href="#">Link</a><span>$$$</span>
-					</div>
-				</div>
-			</div>
-		</section>
+
 		<section>
-			<h2 class="text-3xl">Search Recipes</h2>
-			<div class="searchContainer flex items-center">
-				<form action="#">
+			<div class="search w-100 text-center m-10">
+				<h3 class="text-2xl m-auto w-3/4 my-5">
+					Discover and save thousands of recipes from all over the world in an
+					instant...
+				</h3>
+				<form action="">
 					<input
 						type="text"
-						name="search"
-						id="search"
-						class="border-2 rounded-md border-black px-1 m-3" />
-					<button>Search</button>
+						class="border-2 rounded-lg border-black m-auto w-3/4 p-2 text-lg"
+						placeholder="Search by ingredients..." />
+					<button class="block m-auto my-5 border-2 border-dark rounded-lg p-2">
+						Search
+					</button>
 				</form>
 			</div>
-			<div class="recipeContainer flex"></div>
 		</section>
-		<footer class="flex justify-evenly items-center m-5">
+
+		<section class="m-2">
+			<div class="recipeContainer flex justify-evenly"></div>
+		</section>
+
+		<footer class="flex justify-evenly items-center mt-auto mb-5">
 			<a href="">Privacy</a>
 			<a href="">Terms</a>
 			<a href="https://github.com/nathandcarter21/startup">Github</a>
