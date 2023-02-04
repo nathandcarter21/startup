@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Recipe Book</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script>
+			tailwind.config = {
+				theme: {
+					extend: {
+						colors: {
+							primary: "#A2C5FE",
+							secondary: "#E9C46A",
+							dark: "#264653",
+							warning: "#F4A261",
+							danger: "#E76F51",
+						},
+					},
+				},
+			};
+		</script>
+		<link rel="stylesheet" href="app.css" />
+	</head>
+	<body class="font-sans h-full flex flex-col w-full justify-between gap-10">
+		<nav
+			class="flex p-5 border-b-2 border-dark w-full justify-between align-center text-primary text-4xl">
+			<a href="index.html">Recipe Book</a>
+			<a href="myrecipes.html">Account</a>
+		</nav>
+		<section class="m-10 h-full text-center recipePage">
+			<h1>Teriyaki Chicken with Rice</h1>
+			<h2>Ingredients</h2>
+			<ul>
+				<li>Teriyaki Sauce</li>
+				<li>Chicken</li>
+				<li>Rice</li>
+			</ul>
+			<h2>Servings</h2>
+			<p>4</p>
+			<h2>Calories</h2>
+			<p>2100</p>
+			<h2>Type</h2>
+			<p>Dinner</p>
+			<h2>Price</h2>
+			<p>$$</p>
+			<h2>Instructions</h2>
+			<ul>
+				<li>1) Begin boiling rice</li>
+				<li>2) Cook chicken on medium high heat for 5 minutes</li>
+				<li>
+					3) Add teriyaki sauce to chicken and turn heat down to low for 3
+					minutes
+				</li>
+			</ul>
+		</section>
+		<footer class="flex justify-evenly items-center p-5">
+			<a href="">Privacy</a>
+			<a href="">Terms</a>
+			<a href="https://github.com/nathandcarter21/startup">Github</a>
+		</footer>
+	</body>
+</html>
