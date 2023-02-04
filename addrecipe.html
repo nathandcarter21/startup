@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Recipe Book</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script>
+			tailwind.config = {
+				theme: {
+					extend: {
+						colors: {
+							primary: "#A2C5FE",
+							secondary: "#E9C46A",
+							dark: "#264653",
+							warning: "#F4A261",
+							danger: "#E76F51",
+						},
+					},
+				},
+			};
+		</script>
+		<link rel="stylesheet" href="app.css" />
+	</head>
+	<body class="font-mono h-full flex flex-col w-full justify-between gap-10">
+		<nav
+			class="flex p-5 border-b-2 border-dark w-full justify-between align-center text-primary text-4xl">
+			<a href="index.html">Recipe Book</a>
+			<a href="myrecipes.html">Account</a>
+		</nav>
+		<section class="m-5 h-full flex justify-center">
+			<form action="#" class="flex flex-col justify-evenly gap-5 text-xl w-4/6">
+				<label for="name">Name</label>
+				<input
+					type="text"
+					class="p-1 border-2 border-dark rounded-md"
+					id="name"
+					name="name" />
+				<label for="ingredients">Ingredients</label>
+				<input
+					type="text"
+					class="p-1 border-2 border-dark rounded-md"
+					id="ingredients"
+					name="ingredients" />
+				<label for="servings">Servings</label>
+				<input
+					type="number"
+					class="p-1 border-2 border-dark rounded-md"
+					id="servings"
+					name="servings" />
+				<label for="calories">Calories</label>
+				<input
+					type="number"
+					class="p-1 border-2 border-dark rounded-md"
+					id="calories"
+					name="calories" />
+				<label for="type">Type</label>
+				<select
+					class="p-1 border-2 border-dark rounded-md"
+					id="type"
+					name="type">
+					<option value="breakfast">Breakfast</option>
+					<option value="lunch">Lunch</option>
+					<option value="dinner">Dinner</option>
+					<option value="dessert">Dessert</option>
+				</select>
+				<button class="p-1 text-right">Add Recipe</button>
+			</form>
+		</section>
+		<footer class="flex justify-evenly items-center p-5">
+			<a href="">Privacy</a>
+			<a href="">Terms</a>
+			<a href="https://github.com/nathandcarter21/startup">Github</a>
+		</footer>
+	</body>
+</html>
