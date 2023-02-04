@@ -23,64 +23,85 @@
 		</script>
 		<link rel="stylesheet" href="app.css" />
 	</head>
-	<body class="font-sans h-full w-full flex flex-col justify-between">
+	<body
+		class="font-mono h-full flex flex-col w-full justify-between bg-[#eaeaea] gap-10">
 		<nav
-			class="flex p-5 border-b-2 border-dark w-full justify-between align-center text-4xl text-primary">
+			class="flex p-5 border-b-2 border-dark w-full justify-between align-center text-primary text-4xl">
 			<a href="index.html">Recipe Book</a>
 			<a href="myrecipes.html">Account</a>
 		</nav>
-
-		<section>
-			<div class="search w-100 text-center m-10">
-				<h3 class="text-2xl m-auto w-3/4 my-5">
-					Discover and save thousands of recipes from all over the world in an
-					instant...
-				</h3>
-				<form action="">
-					<input
-						type="text"
-						class="border-2 rounded-lg border-black m-auto w-3/4 p-2 text-lg"
-						placeholder="Search by ingredients..." />
-					<button class="block m-auto my-5 border-2 border-dark rounded-lg p-2">
-						Search
-					</button>
-				</form>
+		<section class="m-5 h-full">
+			<div
+				class="myRecipesHeader flex justify-between text-3xl text-dark items-center p-5">
+				<h2 class="inline">My Recipes</h2>
+				<button><a href="addrecipe.html">Add Recipe</a></button>
 			</div>
-		</section>
-
-		<section class="m-5">
 			<div class="recipeContainer flex justify-evenly">
 				<div class="recipe">
 					<h2>Teriyaki Chicken with Rice</h2>
-					<img
-						src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-						alt="" />
+					<div class="ingredients">
+						<h6>Ingredients</h6>
+						<ul>
+							<li>Teriyaki Sauce</li>
+							<li>Chicken</li>
+							<li>Rice</li>
+						</ul>
+					</div>
+					<h4>Servings: 4</h4>
+					<h4>Calories: 2100</h4>
+					<h4>Dinner</h4>
 					<div class="recipeFooter"><a href="#">Link</a><span>$$</span></div>
 				</div>
 				<div class="recipe">
 					<h2>BBQ Chicken Skewers</h2>
-					<img
-						src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Zm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-						alt="" />
+					<div class="ingredients">
+						<h6>Ingredients</h6>
+						<ul>
+							<li>Chicken</li>
+							<li>BBQ Sauce</li>
+							<li>Onions</li>
+							<li>Skewers</li>
+						</ul>
+					</div>
+					<h4>Servings: 3</h4>
+					<h4>Calories: 1800</h4>
+					<h4>Dinner</h4>
 					<div class="recipeFooter"><a href="#">Link</a><span>$$$</span></div>
 				</div>
 				<div class="recipe">
 					<h2>Strawberry Shortcake</h2>
-					<img
-						src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-						alt="" />
+					<div class="ingredients">
+						<h6>Ingredients</h6>
+						<ul>
+							<li>Strawberries</li>
+							<li>Milk</li>
+							<li>Eggs</li>
+							<li>Flour</li>
+							<li>Water</li>
+						</ul>
+					</div>
+					<h4>Servings: 1</h4>
+					<h4>Calories: 900</h4>
+					<h4>Desert</h4>
 					<div class="recipeFooter"><a href="#">Link</a><span>$</span></div>
 				</div>
 				<div class="recipe">
 					<h2>Avocado Toast</h2>
-					<img
-						src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-						alt="" />
+					<div class="ingredients">
+						<h6>Ingredients</h6>
+						<ul>
+							<li>Bread</li>
+							<li>Avocado</li>
+							<li>Eggs</li>
+						</ul>
+					</div>
+					<h4>Servings: 2</h4>
+					<h4>Calories: 500</h4>
+					<h4>Breakfast</h4>
 					<div class="recipeFooter"><a href="#">Link</a><span>$</span></div>
 				</div>
 			</div>
 		</section>
-
 		<footer class="flex justify-evenly items-center p-5">
 			<a href="">Privacy</a>
 			<a href="">Terms</a>

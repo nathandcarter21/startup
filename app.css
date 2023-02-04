@@ -30,11 +30,11 @@
     min-width: 300px;
     margin: .75rem;
     height: 500px;
-    text-align: center;
     gap: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    font-size: large;
 }
 
 .recipe img {
@@ -45,8 +45,13 @@
     border-radius: 1rem;
 }
 
-.recipe h4 {
+.recipe h2 {
+    text-align: center;
     font-size: xx-large;
+}
+
+.recipe h6 {
+    text-decoration: underline;
 }
 
 .recipe .recipeFooter {
