@@ -63,6 +63,34 @@
     text-decoration: underline;
 }
 
+.recipePage h1,
+.recipePage h2,
+.recipePage p,
+.recipePage ul {
+    margin-bottom: 2rem !important;
+}
+
+.recipePage h1 {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+}
+
+.recipePage h2 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    text-decoration-line: underline;
+}
+
+.recipePage ul {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+}
+
+.recipePage p {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+}
+
 @media only screen and (max-width: 600px) {
     .recipeContainer {
         flex-direction: column;
