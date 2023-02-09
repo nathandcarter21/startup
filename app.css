@@ -53,13 +53,14 @@
 .recipePage h2,
 .recipePage p,
 .recipePage ul {
-    margin-bottom: 2rem !important;
+    margin-bottom: 1rem !important;
 }
 
 .recipePage h1 {
     font-size: 1.875rem;
     line-height: 2.25rem;
     color: #D4A373;
+    text-align: center;
 }
 
 .recipePage h2 {
@@ -96,6 +97,23 @@ select:focus {
 
     .recipe {
         width: 75%;
+    }
+
+    nav {
+        font-size: x-large !important;
+    }
+
+    .recipePage h1 {
+        font-size: x-large !important;
+    }
+
+    .recipePage h2 {
+        font-size: large !important;
+    }
+
+    .recipePage p,
+    .recipe ul {
+        font-size: medium !important;
     }
 }
 
