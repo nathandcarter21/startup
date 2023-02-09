@@ -11,11 +11,14 @@
 				theme: {
 					extend: {
 						colors: {
-							primary: "#A2C5FE",
-							secondary: "#E9C46A",
-							dark: "#264653",
-							warning: "#F4A261",
-							danger: "#E76F51",
+							primary: "#D4A373",
+							primaryDark: "#C39272",
+							secondary: "#CCD5AE",
+							secondaryDark: "#AAB38C",
+							thirdary: "#E9EDC9",
+							fourthary: "#FAEDCD",
+							bg: "#FEFAE0",
+							dark: "#606060",
 						},
 					},
 				},
@@ -23,17 +26,37 @@
 		</script>
 		<link rel="stylesheet" href="app.css" />
 	</head>
-	<body class="font-sans h-full flex flex-col w-full justify-between gap-10">
+	<body
+		class="font-sans h-full flex flex-col w-full justify-between gap-10 bg-bg">
 		<nav
-			class="flex p-5 border-b-2 border-dark w-full justify-between align-center text-primary text-4xl">
-			<a href="index.html">Recipe Book</a>
-			<a href="myrecipes.html">Account</a>
+			class="flex p-5 w-full justify-between align-center text-4xl text-primary ease-in duration-300 border-b-2 border-secondaryDark">
+			<a href="index.html" class="hover:text-primaryDark ease-in duration-200"
+				>Recipe Book</a
+			>
+			<a
+				href="myrecipes.html"
+				class="text-secondary hover:text-secondaryDark ease-in duration-200"
+				>Account</a
+			>
 		</nav>
 		<section class="m-5 h-full">
 			<div
-				class="myRecipesHeader flex justify-between text-3xl text-dark items-center p-5">
-				<h2 class="inline">My Recipes</h2>
-				<button><a href="addrecipe.html">Add Recipe</a></button>
+				class="myRecipesHeader flex justify-between text-dark items-center p-5 text-dark">
+				<h2 class="inline text-3xl">My Recipes</h2>
+				<a href="addrecipe.html">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="25"
+						height="25"
+						fill="currentColor"
+						viewBox="0 0 16 16"
+						class="hover:text-black ease-in duration-200">
+						<path
+							d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+						<path
+							d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+					</svg>
+				</a>
 			</div>
 			<div class="recipeContainer flex justify-evenly">
 				<div class="recipe">
@@ -109,7 +132,7 @@
 				</div>
 			</div>
 		</section>
-		<footer class="flex justify-evenly items-center p-5">
+		<footer class="flex justify-evenly items-center p-5 text-primary">
 			<a href="">Privacy</a>
 			<a href="">Terms</a>
 			<a href="https://github.com/nathandcarter21/startup">Github</a>

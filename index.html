@@ -11,11 +11,14 @@
 				theme: {
 					extend: {
 						colors: {
-							primary: "#A2C5FE",
-							secondary: "#E9C46A",
-							dark: "#264653",
-							warning: "#F4A261",
-							danger: "#E76F51",
+							primary: "#D4A373",
+							primaryDark: "#C39272",
+							secondary: "#CCD5AE",
+							secondaryDark: "#AAB38C",
+							thirdary: "#E9EDC9",
+							fourthary: "#FAEDCD",
+							bg: "#FEFAE0",
+							dark: "#606060",
 						},
 					},
 				},
@@ -23,25 +26,33 @@
 		</script>
 		<link rel="stylesheet" href="app.css" />
 	</head>
-	<body class="font-sans h-full w-full flex flex-col justify-between gap-10">
+	<body
+		class="font-sans h-full w-full flex flex-col justify-between gap-10 bg-bg">
 		<nav
-			class="flex p-5 border-b-2 border-dark w-full justify-between align-center text-4xl text-primary">
-			<a href="index.html">Recipe Book</a>
-			<a href="myrecipes.html">Account</a>
+			class="flex p-5 w-full justify-between align-center text-4xl text-primary ease-in duration-300 border-b-2 border-secondaryDark">
+			<a href="index.html" class="hover:text-primaryDark ease-in duration-200"
+				>Recipe Book</a
+			>
+			<a
+				href="myrecipes.html"
+				class="text-secondary hover:text-secondaryDark ease-in duration-200"
+				>Account</a
+			>
 		</nav>
 
 		<section>
 			<div class="search w-100 text-center m-10">
-				<h3 class="text-2xl m-auto w-3/4 my-5">
+				<h3 class="text-2xl m-auto w-3/4 my-5 text-dark">
 					Discover and save thousands of recipes from all over the world in an
 					instant...
 				</h3>
 				<form action="">
 					<input
 						type="text"
-						class="border-2 rounded-lg border-black m-auto w-3/4 p-2 text-lg"
+						class="border-2 rounded-lg border-secondaryDark m-auto w-3/4 p-2 text-lg bg-bg text-secondaryDark"
 						placeholder="Search by ingredients..." />
-					<button class="block m-auto my-5 border-2 border-dark rounded-lg p-2">
+					<button
+						class="block m-auto my-5 border-2 border-primary rounded-lg p-2 text-primary hover:border-primaryDark hover:text-primaryDark ease-in duration-200">
 						Search
 					</button>
 				</form>
@@ -89,7 +100,7 @@
 			</div>
 		</section>
 
-		<footer class="flex justify-evenly items-center p-5">
+		<footer class="flex justify-evenly items-center p-5 text-primary">
 			<a href="">Privacy</a>
 			<a href="">Terms</a>
 			<a href="https://github.com/nathandcarter21/startup">Github</a>
