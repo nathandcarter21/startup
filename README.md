@@ -45,3 +45,13 @@
   - You can use position absolute and position relative to move something on top of other elements without messing up the flex box
   - Giving something a border-radius of 50% will make it a circle
   - Can use flex-column on body elements to stick footer to bottom and navbar to the top
+  
+### Startup HTML/CSS
+  - Use themes defined in tailwind config in head to have consistent styles
+  - Can use tailwind flex to display navbar at top, main in center, and footer at bottom
+  - Have to manually change text size as tailwind has all headers at same size
+  - Hyperlinks should not use a slash at beggining
+  - Can use svg for icons and place them instead buttons to make them clickable
+  - Use divs to make containers that you want to have flex rather than using outside section elements
+  - Use consistent styles to make everything feel like the same website like border-radius and inputs
+  - For things I know I will need to render with Javascript or React, style with custom css so you don't need to add a bunch of tailwind class names
