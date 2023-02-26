@@ -68,8 +68,3 @@
 - Create classes with classes with class keyword, constructor, and setting properties
 - Can create a delay effect with promises and setTimeout
 - Can set elements styles from js with dynamic values
-  - To add tailwind to project you need to include the script in the head of the file
-  - Tailwind allows you to add css selectors without any css by putting common naming conventions into class names
-  - You can use position absolute and position relative to move something on top of other elements without messing up the flex box
-  - Giving something a border-radius of 50% will make it a circle
-  - Can use flex-column on body elements to stick footer to bottom and navbar to the top
