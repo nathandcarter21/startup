@@ -33,11 +33,19 @@
 			<a href="index.html" class="hover:text-primaryDark ease-in duration-200"
 				>Recipe Book</a
 			>
-			<a
-				href="myrecipes.html"
-				class="text-secondary hover:text-secondaryDark ease-in duration-200"
-				>Account</a
-			>
+			<div class="dropdown">
+				<button
+					onclick="showDropDown()"
+					class="text-secondary hover:text-secondaryDark ease-in duration-200 dropBtn">
+					Account
+				</button>
+				<div
+					id="dropdownNav"
+					class="dropdownNav bg-bg text-dark text-lg text-center">
+					<a href="myrecipes.html" class="block">My recipes</a>
+					<a href="#" class="block">Log out</a>
+				</div>
+			</div>
 		</nav>
 
 		<section>
@@ -106,4 +114,6 @@
 			<a href="https://github.com/nathandcarter21/startup">Github</a>
 		</footer>
 	</body>
+
+	<script src="app.js"></script>
 </html>

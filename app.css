@@ -89,6 +89,25 @@ select:focus {
     outline: none;
 }
 
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdownNav {
+    display: none;
+    position: absolute;
+    width: 100%;
+    margin-top: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.show {
+    display: block;
+}
+
+
 @media only screen and (max-width: 600px) {
     .recipeContainer {
         flex-direction: column;
