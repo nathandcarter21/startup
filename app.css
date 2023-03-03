@@ -7,6 +7,10 @@
     font-weight: 500;
 }
 
+main {
+    min-height: calc(100vh - 150px)
+}
+
 .recipe {
     padding: 1.25rem;
     background-image: linear-gradient(to right bottom, rgba(170, 179, 140, .5), rgba(204, 213, 174, .5));
