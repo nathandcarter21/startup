@@ -22,7 +22,7 @@ const logout = () => {
 const setUsername = () => {
     const username = localStorage.getItem('username')
     const account = document.querySelector('.account')
-    if (username === "") {
+    if (username === null || username === undefined || username === "") {
         return
     }
     account.innerText = username
