@@ -1,4 +1,6 @@
 const importRecipe = () => {
+    if (localStorage.getItem('username') === '')
+        return
     const name = document.querySelector('.name').textContent
     const ingredientUL = document.querySelector('.ingredients')
     const list = ingredientUL.querySelectorAll('li');
