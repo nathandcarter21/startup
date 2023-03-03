@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Recipe Book</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script>
+			tailwind.config = {
+				theme: {
+					extend: {
+						colors: {
+							primary: "#D4A373",
+							primaryDark: "#C39272",
+							secondary: "#CCD5AE",
+							secondaryDark: "#AAB38C",
+							thirdary: "#E9EDC9",
+							fourthary: "#FAEDCD",
+							bg: "#FEFAE0",
+							dark: "#606060",
+						},
+					},
+				},
+			};
+		</script>
+		<link rel="stylesheet" href="app.css" />
+	</head>
+	<body class="font-sans h-full w-full flex flex-col justify-between bg-bg">
+		<nav
+			class="flex p-5 w-full justify-between align-center text-4xl text-primary ease-in duration-300 border-b-2 border-secondaryDark">
+			<a href="index.html" class="hover:text-primaryDark ease-in duration-200"
+				>Recipe Book</a
+			>
+			<div class="dropdown">
+				<button
+					onclick="showDropDown()"
+					class="account text-secondary hover:text-secondaryDark ease-in duration-200 dropBtn">
+					Account
+				</button>
+				<div
+					id="dropdownNav"
+					class="dropdownNav bg-bg text-dark text-lg text-center">
+					<!-- <a href="myrecipes.html" class="block">My recipes</a> -->
+					<a href="login.html" class="block">Log in</a>
+				</div>
+			</div>
+		</nav>
+
+		<main>
+			<section class="flex justify-center">
+				<div class="searchContainer w-1/2 m-10 flex flex-col align-center">
+					<h3 class="text-3xl m-auto my-5 text-dark text-center">Login</h3>
+					<label for="username" class="text-2xl text-dark">Username</label>
+					<input
+						type="text"
+						id="username"
+						class="border-2 rounded-lg border-secondaryDark m-auto w-full p-2 text-lg bg-bg text-secondaryDark" />
+					<button
+						class="block m-auto my-5 border-2 border-primary rounded-lg p-2 text-primary hover:border-primaryDark hover:text-primaryDark ease-in duration-200"
+						onclick="login()">
+						Log in
+					</button>
+				</div>
+			</section>
+		</main>
+
+		<footer class="flex justify-evenly items-center p-5 text-primary">
+			<a href="">Privacy</a>
+			<a href="">Terms</a>
+			<a href="https://github.com/nathandcarter21/startup">Github</a>
+		</footer>
+	</body>
+
+	<script src="login.js"></script>
+	<script src="app.js"></script>
+</html>

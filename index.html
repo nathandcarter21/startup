@@ -26,8 +26,7 @@
 		</script>
 		<link rel="stylesheet" href="app.css" />
 	</head>
-	<body
-		class="font-sans h-full w-full flex flex-col justify-between gap-10 bg-bg">
+	<body class="font-sans h-full w-full flex flex-col justify-between bg-bg">
 		<nav
 			class="flex p-5 w-full justify-between align-center text-4xl text-primary ease-in duration-300 border-b-2 border-secondaryDark">
 			<a href="index.html" class="hover:text-primaryDark ease-in duration-200"
@@ -36,77 +35,76 @@
 			<div class="dropdown">
 				<button
 					onclick="showDropDown()"
-					class="text-secondary hover:text-secondaryDark ease-in duration-200 dropBtn">
+					class="account text-secondary hover:text-secondaryDark ease-in duration-200 dropBtn">
 					Account
 				</button>
 				<div
 					id="dropdownNav"
 					class="dropdownNav bg-bg text-dark text-lg text-center">
-					<a href="myrecipes.html" class="block">My recipes</a>
-					<a href="#" class="block">Log out</a>
+					<a href="login.html" class="block">Log in</a>
 				</div>
 			</div>
 		</nav>
 
-		<section>
-			<div class="search w-100 text-center m-10">
-				<h3 class="text-2xl m-auto w-3/4 my-5 text-dark">
-					Discover and save thousands of recipes from all over the world in an
-					instant...
-				</h3>
-				<form action="">
+		<main>
+			<section>
+				<div class="searchContainer w-100 text-center m-10">
+					<h3 class="text-2xl m-auto w-3/4 my-5 text-dark">
+						Discover and save thousands of recipes from all over the world in an
+						instant...
+					</h3>
 					<input
 						type="text"
-						class="border-2 rounded-lg border-secondaryDark m-auto w-3/4 p-2 text-lg bg-bg text-secondaryDark"
-						placeholder="Search by ingredients..." />
+						class="search border-2 rounded-lg border-secondaryDark m-auto w-3/4 p-2 text-lg bg-bg text-secondaryDark"
+						placeholder="Search..." />
 					<button
-						class="block m-auto my-5 border-2 border-primary rounded-lg p-2 text-primary hover:border-primaryDark hover:text-primaryDark ease-in duration-200">
+						class="block m-auto my-5 border-2 border-primary rounded-lg p-2 text-primary hover:border-primaryDark hover:text-primaryDark ease-in duration-200"
+						onclick="filterRecipes()">
 						Search
 					</button>
-				</form>
-			</div>
-		</section>
-
-		<section class="m-5">
-			<div class="recipeContainer flex justify-evenly">
-				<div class="recipe">
-					<h2>Teriyaki Chicken with Rice</h2>
-					<img
-						src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-						alt="" />
-					<div class="recipeFooter">
-						<a href="recipe.html">Link</a><span>$$</span>
-					</div>
 				</div>
-				<div class="recipe">
-					<h2>BBQ Chicken Skewers</h2>
-					<img
-						src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Zm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-						alt="" />
-					<div class="recipeFooter">
-						<a href="recipe.html">Link</a><span>$$$</span>
+			</section>
+			<section class="m-5">
+				<div class="recipeContainer flex flex-wrap justify-evenly">
+					<!-- <div class="recipe">
+						<h2>Teriyaki Chicken with Rice</h2>
+						<img
+							src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+							alt="" />
+						<div class="recipeFooter">
+							<a href="recipe.html">Link</a><span>$$</span>
+						</div>
 					</div>
-				</div>
-				<div class="recipe">
-					<h2>Strawberry Shortcake</h2>
-					<img
-						src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-						alt="" />
-					<div class="recipeFooter">
-						<a href="recipe.html">Link</a><span>$</span>
+					<div class="recipe">
+						<h2>BBQ Chicken Skewers</h2>
+						<img
+							src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Zm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+							alt="" />
+						<div class="recipeFooter">
+							<a href="recipe.html">Link</a><span>$$$</span>
+						</div>
 					</div>
-				</div>
-				<div class="recipe">
-					<h2>Avocado Toast</h2>
-					<img
-						src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-						alt="" />
-					<div class="recipeFooter">
-						<a href="recipe.html">Link</a><span>$</span>
+					<div class="recipe">
+						<h2>Strawberry Shortcake</h2>
+						<img
+							src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+							alt="" />
+						<div class="recipeFooter">
+							<a href="recipe.html">Link</a><span>$</span>
+						</div>
 					</div>
+					<div class="recipe">
+						<h2>Avocado Toast</h2>
+						<img
+							src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+							alt="" />
+						<div class="recipeFooter">
+							<a href="recipe.html">Link</a><span>$</span>
+						</div>
+					</div> -->
 				</div>
-			</div>
-		</section>
+			</section>
+		</main>
 
 		<footer class="flex justify-evenly items-center p-5 text-primary">
 			<a href="">Privacy</a>
@@ -115,5 +113,6 @@
 		</footer>
 	</body>
 
+	<script src="index.js"></script>
 	<script src="app.js"></script>
 </html>
