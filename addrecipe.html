@@ -26,8 +26,7 @@
 		</script>
 		<link rel="stylesheet" href="app.css" />
 	</head>
-	<body
-		class="font-mono h-full flex flex-col w-full justify-between gap-10 bg-bg">
+	<body class="font-mono h-full flex flex-col w-full justify-between bg-bg">
 		<nav
 			class="flex p-5 w-full justify-between align-center text-4xl text-primary ease-in duration-300 border-b-2 border-secondaryDark">
 			<a href="index.html" class="hover:text-primaryDark ease-in duration-200"
@@ -36,7 +35,7 @@
 			<div class="dropdown">
 				<button
 					onclick="showDropDown()"
-					class="text-secondary hover:text-secondaryDark ease-in duration-200 dropBtn">
+					class="account text-secondary hover:text-secondaryDark ease-in duration-200 dropBtn">
 					Account
 				</button>
 				<div
@@ -47,67 +46,70 @@
 				</div>
 			</div>
 		</nav>
-		<section class="m-5 h-full flex justify-center text-dark">
-			<form
-				action="#"
-				class="flex flex-col justify-evenly gap-5 text-xl w-4/6 text-primary">
-				<label for="name">Name</label>
-				<input
-					type="text"
-					class="p-1 border-2 border-secondaryDark rounded-md text-secondaryDark bg-bg"
-					id="name"
-					name="name" />
-				<label for="ingredients">Ingredients</label>
-				<input
-					type="text"
-					class="p-1 border-2 border-secondaryDark rounded-md text-secondaryDark bg-bg"
-					id="ingredients"
-					name="ingredients" />
-				<label for="servings">Servings</label>
-				<input
-					type="number"
-					class="p-1 border-2 border-secondaryDark rounded-md text-secondaryDark bg-bg"
-					id="servings"
-					name="servings" />
-				<label for="calories">Calories</label>
-				<input
-					type="number"
-					class="p-1 border-2 border-secondaryDark rounded-md text-secondaryDark bg-bg"
-					id="calories"
-					name="calories" />
-				<label for="type">Type</label>
-				<select
-					class="p-1 border-2 border-secondaryDark rounded-md text-secondaryDark bg-bg"
-					id="type"
-					name="type">
-					<option value="breakfast">Breakfast</option>
-					<option value="lunch">Lunch</option>
-					<option value="dinner">Dinner</option>
-					<option value="dessert">Dessert</option>
-				</select>
-				<label for="price">Price</label>
-				<select
-					class="p-1 border-2 border-secondaryDark rounded-md text-secondaryDark bg-bg"
-					id="price"
-					name="price">
-					<option value="$">$</option>
-					<option value="$$">$$</option>
-					<option value="$$$">$$$</option>
-					<option value="$$$+">$$$+</option>
-				</select>
-				<div class="addBtn flex justify-end">
-					<button
-						class="p-2 text-right border-primary border-2 rounded-md hover:border-primaryDark hover:text-primaryDark ease-in duration-200">
-						Add Recipe
-					</button>
+		<main>
+			<section class="m-5 h-full flex justify-center text-dark">
+				<div
+					class="flex flex-col justify-evenly gap-5 text-xl w-4/6 text-primary">
+					<label for="name">Name</label>
+					<input
+						type="text"
+						class="p-1 border-2 border-secondaryDark rounded-md text-secondaryDark bg-bg"
+						id="name"
+						name="name" />
+					<label for="ingredients">Ingredients</label>
+					<input
+						type="text"
+						class="p-1 border-2 border-secondaryDark rounded-md text-secondaryDark bg-bg"
+						id="ingredients"
+						name="ingredients" />
+					<label for="servings">Servings</label>
+					<input
+						type="number"
+						class="p-1 border-2 border-secondaryDark rounded-md text-secondaryDark bg-bg"
+						id="servings"
+						name="servings" />
+					<label for="calories">Calories</label>
+					<input
+						type="number"
+						class="p-1 border-2 border-secondaryDark rounded-md text-secondaryDark bg-bg"
+						id="calories"
+						name="calories" />
+					<label for="type">Type</label>
+					<select
+						class="p-1 border-2 border-secondaryDark rounded-md text-secondaryDark bg-bg"
+						id="type"
+						name="type">
+						<option value="breakfast">Breakfast</option>
+						<option value="lunch">Lunch</option>
+						<option value="dinner">Dinner</option>
+						<option value="dessert">Dessert</option>
+					</select>
+					<label for="price">Price</label>
+					<select
+						class="p-1 border-2 border-secondaryDark rounded-md text-secondaryDark bg-bg"
+						id="price"
+						name="price">
+						<option value="$">$</option>
+						<option value="$$">$$</option>
+						<option value="$$$">$$$</option>
+						<option value="$$$+">$$$+</option>
+					</select>
+					<div class="addBtn flex justify-end">
+						<button
+							class="p-2 text-right border-primary border-2 rounded-md hover:border-primaryDark hover:text-primaryDark ease-in duration-200"
+							onclick="addRecipe()">
+							Add Recipe
+						</button>
+					</div>
 				</div>
-			</form>
-		</section>
+			</section>
+		</main>
 		<footer class="flex justify-evenly items-center p-5 text-primary">
 			<a href="">Privacy</a>
 			<a href="">Terms</a>
 			<a href="https://github.com/nathandcarter21/startup">Github</a>
 		</footer>
 	</body>
+	<script src="addrecipe.js"></script>
 	<script src="app.js"></script>
 </html>
