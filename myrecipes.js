@@ -88,8 +88,8 @@ const loadRecipes = () => {
         const calories = document.createElement('h4')
         calories.innerText = `Calories: ${recipe.calories}`
 
-        const category = document.createElement('h4')
-        category.innerText = recipe.category
+        const type = document.createElement('h4')
+        type.innerText = recipe.type
 
         const footer = document.createElement('div')
         footer.className += 'recipeFooter'
@@ -103,7 +103,7 @@ const loadRecipes = () => {
 
         footer.replaceChildren(a, span)
 
-        div.replaceChildren(h2, ingredients, servings, calories, category, footer)
+        div.replaceChildren(h2, ingredients, servings, calories, type, footer)
 
         container.appendChild(div)
     }
@@ -116,6 +116,11 @@ const filterRecipes = () => {
     const container = document.querySelector('.recipeContainer')
 
     container.replaceChildren()
+
+    const recipes = JSON.parse(localStorage.getItem('recipes'))
+
+    if (recipes === null)
+        return
 
     for (const recipe of recipes) {
         const div = document.createElement('div')
@@ -147,8 +152,8 @@ const filterRecipes = () => {
         const calories = document.createElement('h4')
         calories.innerText = `Calories: ${recipe.calories}`
 
-        const category = document.createElement('h4')
-        category.innerText = recipe.category
+        const type = document.createElement('h4')
+        type.innerText = recipe.type
 
         const footer = document.createElement('div')
         footer.className += 'recipeFooter'
@@ -162,7 +167,7 @@ const filterRecipes = () => {
 
         footer.replaceChildren(a, span)
 
-        div.replaceChildren(h2, ingredients, servings, calories, category, footer)
+        div.replaceChildren(h2, ingredients, servings, calories, type, footer)
 
         container.appendChild(div)
     }

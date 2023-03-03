@@ -48,21 +48,21 @@
 		</nav>
 		<main class="width-1/2 m-auto">
 			<section class="h-full recipePage text-dark width-full p-3">
-				<h1>Teriyaki Chicken with Rice</h1>
+				<h1 class="name">Teriyaki Chicken with Rice</h1>
 				<h2>Ingredients</h2>
-				<ul>
+				<ul class="ingredients">
 					<li>Teriyaki Sauce</li>
 					<li>Chicken</li>
 					<li>Rice</li>
 				</ul>
 				<h2>Servings</h2>
-				<p>4</p>
+				<p class="servings">4</p>
 				<h2>Calories</h2>
-				<p>2100</p>
+				<p class="calories">2100</p>
 				<h2>Type</h2>
-				<p>Dinner</p>
+				<p class="type">Dinner</p>
 				<h2>Price</h2>
-				<p>$$</p>
+				<p class="price">$$</p>
 				<h2>Instructions</h2>
 				<ul>
 					<li>1) Begin boiling rice</li>
@@ -72,6 +72,9 @@
 						minutes
 					</li>
 				</ul>
+				<button class="text-primary text-xl" onclick="importRecipe()">
+					Import Recipe
+				</button>
 			</section>
 		</main>
 		<footer class="flex justify-evenly items-center p-5 text-primary">
@@ -80,5 +83,6 @@
 			<a href="https://github.com/nathandcarter21/startup">Github</a>
 		</footer>
 	</body>
+	<script src="importRecipe.js"></script>
 	<script src="app.js"></script>
 </html>
