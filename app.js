@@ -22,12 +22,17 @@ const logout = () => {
 const setUsername = () => {
     const username = localStorage.getItem('username')
     const account = document.querySelector('.account')
-    if (username === null || username === undefined || username === "") {
+    const dropdownNav = document.querySelector('.dropdownNav')
+    if (username === null || username === undefined || username === '') {
+        const login = document.createElement('a')
+        login.innerText = 'Log In'
+        login.href = 'login.html'
+        login.className += 'block'
+        dropdownNav.replaceChildren(login)
         return
     }
     account.innerText = username
 
-    const dropdownNav = document.querySelector('.dropdownNav')
 
     const myRecipes = document.createElement('a')
     myRecipes.innerText = 'My Recipes'

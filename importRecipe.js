@@ -28,3 +28,11 @@ const importRecipe = () => {
     localStorage.setItem('recipes', JSON.stringify(recipes))
     window.location.href = 'myrecipes.html'
 }
+
+const displayImportButton = () => {
+    const importBtn = document.querySelector('.import')
+    const username = localStorage.getItem('username')
+    if (username === null || username === undefined || username === '')
+        importBtn.style.display = 'none'
+}
+displayImportButton()

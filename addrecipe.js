@@ -1,3 +1,11 @@
+const verifyUser = () => {
+    const username = localStorage.getItem('username')
+    if (username === null || username === undefined || username === '')
+        window.location.href = 'index.html'
+}
+
+verifyUser()
+
 const addRecipe = () => {
     const name = document.querySelector('#name').value
     const ingredients = document.querySelector('#ingredients').value.split(',')

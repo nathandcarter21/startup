@@ -1,55 +1,10 @@
-const recipes = [
-    {
-        name: 'Teriyaki Chicken with Rice',
-        ingredients: [
-            'Teriyaki Sauce',
-            'Chicken',
-            'Rice',
-        ],
-        servings: 4,
-        calories: 2100,
-        category: 'Dinner',
-        price: '$$'
-    },
-    {
-        name: 'BBQ Chicken Skewers',
-        ingredients: [
-            'Chicken',
-            'Rice',
-            'Onions',
-            'Skewers',
-        ],
-        servings: 3,
-        calories: 1800,
-        category: 'Dinner',
-        price: '$$$'
-    },
-    {
-        name: 'Strawberry Shortcake',
-        ingredients: [
-            'Strawberries',
-            'Milk',
-            'Flour',
-            'Water',
-        ],
-        servings: 1,
-        calories: 900,
-        category: 'Dessert',
-        price: '$$'
-    },
-    {
-        name: 'Avocado Toast',
-        ingredients: [
-            'Bread',
-            'Avocado',
-            'Eggs',
-        ],
-        servings: 1,
-        calories: 500,
-        category: 'Breakfast',
-        price: '$'
-    },
-]
+const verifyUser = () => {
+    const username = localStorage.getItem('username')
+    if (username === null || username === undefined || username === '')
+        window.location.href = 'index.html'
+}
+
+verifyUser()
 
 const loadRecipes = () => {
     const container = document.querySelector('.recipeContainer')
