@@ -68,3 +68,11 @@
 - Create classes with classes with class keyword, constructor, and setting properties
 - Can create a delay effect with promises and setTimeout
 - Can set elements styles from js with dynamic values
+
+### Simon Service
+
+- Express can be used to serve static files and host endpoints to post data
+- Have to set up middleware to parse cookies or to be able to read json data
+- Can set the port for an application in express and make it different for different apps
+- Can differentiate routes with router and by using post and get functions
+- Have to put static files in public folder for express to recognize it
