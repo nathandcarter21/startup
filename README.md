@@ -76,3 +76,15 @@
 - Can set the port for an application in express and make it different for different apps
 - Can differentiate routes with router and by using post and get functions
 - Have to put static files in public folder for express to recognize it
+
+### Startup Javascript
+
+- You can use local storage across pages to store username and recipes of user
+- Can store arrays in local storage, but you have to turn them into JSON strings
+- Add basic security by checking for username on page load and dynamically redirecting them
+- Check to null, undefined, or empty string to check if user is logged in
+- Can use javascript to add classes with classNames property
+- Can toggle classes with javascript
+- Inputs have onchange function and buttons have an onclick function
+- Forms refresh page when they are submitted
+- Javascript match function can be used to filter recipes
