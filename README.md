@@ -102,3 +102,4 @@
 - Use await when doing database transactions
 - Set env variables in aws with sudo vi /etc/environment
 - Restart servers with pm2 restart all --update-env
+- let env = process.env.NODE_ENV || 'development' will check if env is prod or dev for env config
