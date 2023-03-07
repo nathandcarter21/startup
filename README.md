@@ -88,3 +88,17 @@
 - Inputs have onchange function and buttons have an onclick function
 - Forms refresh page when they are submitted
 - Javascript match function can be used to filter recipes
+
+### Simon DB
+
+- Can use npm package dotenv to make easy env variables
+- Node allows access to env variables with process.env.NAME
+- Npm i mongodb to get access to MongoClient and connect to database
+- Get collections by using client.db('DATABASE').collection('COLLECTION')
+- Collection.insertOne(item) to insert
+- Collection.find(query,options) to query database with filters in options
+- Use to array on result of query to get an array
+- Can export functions from file with module.exports = {function}
+- Use await when doing database transactions
+- Set env variables in aws with sudo vi /etc/environment
+- Restart servers with pm2 restart all --update-env
