@@ -76,3 +76,30 @@
 - Can set the port for an application in express and make it different for different apps
 - Can differentiate routes with router and by using post and get functions
 - Have to put static files in public folder for express to recognize it
+
+### Startup Javascript
+
+- You can use local storage across pages to store username and recipes of user
+- Can store arrays in local storage, but you have to turn them into JSON strings
+- Add basic security by checking for username on page load and dynamically redirecting them
+- Check to null, undefined, or empty string to check if user is logged in
+- Can use javascript to add classes with classNames property
+- Can toggle classes with javascript
+- Inputs have onchange function and buttons have an onclick function
+- Forms refresh page when they are submitted
+- Javascript match function can be used to filter recipes
+
+### Simon DB
+
+- Can use npm package dotenv to make easy env variables
+- Node allows access to env variables with process.env.NAME
+- Npm i mongodb to get access to MongoClient and connect to database
+- Get collections by using client.db('DATABASE').collection('COLLECTION')
+- Collection.insertOne(item) to insert
+- Collection.find(query,options) to query database with filters in options
+- Use to array on result of query to get an array
+- Can export functions from file with module.exports = {function}
+- Use await when doing database transactions
+- Set env variables in aws with sudo vi /etc/environment
+- Restart servers with pm2 restart all --update-env
+- let env = process.env.NODE_ENV || 'development' will check if env is prod or dev for env config
