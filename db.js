@@ -17,12 +17,22 @@ const url = `mongodb+srv://${userName}:${password}@${hostname}`
 
 const client = new MongoClient(url)
 const recipeCollection = client.db('startup').collection('recipe')
+const userCollection = client.db('startup').collection('user')
 
-const test = async () => {
-    const recipe = {
-        "hello": 'world'
+const register = async (username, password, uuid) => {
+    try {
+        res = await userCollection.insertOne({ username, password, uuid })
+        return res.insertedId
+    } catch (e) {
+        console.error(`Something went wrong: ${e}`)
+        return null
     }
-    await recipeCollection.insertOne(recipe)
+}
+
+const getPassword = async username => {
+    const query = { username }
+    const user = userCollection.findOne(query)
+    return user
 }
 
 const getRecipe = async (id) => {
@@ -57,4 +67,4 @@ const clear = async username => {
     await recipeCollection.deleteMany(query)
 }
 
-module.exports = { test, addRecipe, getRecipes, getRecipe, clear, deleteRecipe }
+module.exports = { addRecipe, getRecipes, getRecipe, clear, deleteRecipe, register, getPassword }
