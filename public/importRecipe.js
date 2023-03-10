@@ -1,4 +1,4 @@
-const importRecipe = () => {
+const importRecipe = async () => {
     if (localStorage.getItem('username') === '')
         return
     const name = document.querySelector('.name').textContent
@@ -14,18 +14,30 @@ const importRecipe = () => {
     const type = document.querySelector('.type').textContent
     const price = document.querySelector('.price').textContent
 
+    const username = localStorage.getItem("username")
+
     const recipe = {
-        name, ingredients, servings, calories, type, price
+        name, ingredients, servings, calories, type, price, username
     }
 
-    let recipes = JSON.parse(localStorage.getItem('recipes'))
+    try {
+        const res = await fetch('/api/recipe', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(recipe),
+        })
+    } catch (e) {
+        console.error(`Error in addrecipe.js: ${e}`)
+    }
 
-    if (recipes === null)
-        recipes = [recipe]
-    else
-        recipes.push(recipe)
+    // let recipes = JSON.parse(localStorage.getItem('recipes'))
 
-    localStorage.setItem('recipes', JSON.stringify(recipes))
+    // if (recipes === null)
+    //     recipes = [recipe]
+    // else
+    //     recipes.push(recipe)
+
+    // localStorage.setItem('recipes', JSON.stringify(recipes))
     window.location.href = 'myrecipes.html'
 }
 
