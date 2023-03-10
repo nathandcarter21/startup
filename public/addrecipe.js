@@ -14,12 +14,13 @@ const addRecipe = async () => {
     const type = document.querySelector('#type').value
     const price = document.querySelector('#price').value
 
+    const username = localStorage.getItem('username')
 
     const recipe = {
-        name, ingredients, servings, calories, type, price
+        name, ingredients, servings, calories, type, price, username
     }
 
-    const id = undefined;
+    let id = undefined;
 
     try {
         const res = await fetch('/api/recipe', {
@@ -42,5 +43,5 @@ const addRecipe = async () => {
     //     recipes.push(recipe)
 
     // localStorage.setItem('recipes', JSON.stringify(recipes))
-    // window.location.href = 'myrecipes.html'
+    window.location.href = 'myrecipes.html'
 }

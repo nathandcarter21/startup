@@ -24,6 +24,12 @@ const test = async () => {
     await recipeCollection.insertOne(recipe)
 }
 
+const getRecipes = async username => {
+    const query = { username };
+    const cursor = recipeCollection.find(query);
+    return cursor.toArray();
+}
+
 const addRecipe = async recipe => {
     try {
         res = await recipeCollection.insertOne(recipe)
@@ -34,4 +40,9 @@ const addRecipe = async recipe => {
     }
 }
 
-module.exports = { test, addRecipe }
+const clear = async username => {
+    const query = { username }
+    await recipeCollection.deleteMany(query)
+}
+
+module.exports = { test, addRecipe, getRecipes, clear }

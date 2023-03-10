@@ -1,3 +1,5 @@
+let userRecipes = []
+
 const verifyUser = () => {
     const username = localStorage.getItem('username')
     if (username === null || username === undefined || username === '')
@@ -6,17 +8,28 @@ const verifyUser = () => {
 
 verifyUser()
 
-const loadRecipes = () => {
+const loadRecipes = async () => {
     const container = document.querySelector('.recipeContainer')
 
-    const recipes = JSON.parse(localStorage.getItem('recipes'))
+    let recipes = undefined
+
+    const username = localStorage.getItem('username')
+
+    try {
+        const res = await fetch('/api/myrecipes', {
+            method: 'GET',
+            headers: { 'content-type': 'application/json', 'Authorization': username }
+        })
+        recipes = await res.json()
+    } catch (e) {
+        console.error(`Error in myrecipes.js: ${e}`)
+    }
+
+    userRecipes = recipes
 
     container.replaceChildren()
 
-    if (recipes === null)
-        return
-
-    for (const recipe of recipes) {
+    for (const recipe of userRecipes) {
         const div = document.createElement('div')
         div.className += 'recipe'
 
@@ -29,13 +42,15 @@ const loadRecipes = () => {
         const h6 = document.createElement('h6')
         h6.innerText = 'Ingredients'
 
-        const ul = document.createElement('ul')
-        for (const ingredient of recipe.ingredients) {
-            const li = document.createElement('li')
-            li.innerText = ingredient
-            ul.appendChild(li)
+        if (recipe.ingredients) {
+            const ul = document.createElement('ul')
+            for (const ingredient of recipe.ingredients) {
+                const li = document.createElement('li')
+                li.innerText = ingredient
+                ul.appendChild(li)
+            }
+            ingredients.replaceChildren(h6, ul)
         }
-        ingredients.replaceChildren(h6, ul)
 
         const servings = document.createElement('h4')
         servings.innerText = `Servings: ${recipe.servings}`
@@ -72,12 +87,10 @@ const filterRecipes = () => {
 
     container.replaceChildren()
 
-    const recipes = JSON.parse(localStorage.getItem('recipes'))
-
-    if (recipes === null)
+    if (userRecipes === null)
         return
 
-    for (const recipe of recipes) {
+    for (const recipe of userRecipes) {
         const div = document.createElement('div')
         div.className += 'recipe'
 
@@ -128,7 +141,17 @@ const filterRecipes = () => {
     }
 }
 
-const clearRecipes = () => {
-    localStorage.setItem('recipes', null)
+const clearRecipes = async () => {
+    const username = localStorage.getItem('username')
+
+    try {
+        await fetch('/api/clear', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json', 'Authorization': username }
+        })
+    } catch (e) {
+        console.error(`Error in myrecipes.js: ${e}`)
+    }
+
     loadRecipes()
 }
