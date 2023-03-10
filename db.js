@@ -3,6 +3,7 @@ if (env === 'development')
     require('dotenv').config()
 
 const { MongoClient } = require('mongodb')
+const ObjectId = require('mongodb').ObjectId
 
 const userName = process.env.MONGOUSER;
 const password = process.env.MONGOPASSWORD;
@@ -24,10 +25,16 @@ const test = async () => {
     await recipeCollection.insertOne(recipe)
 }
 
+const getRecipe = async (id) => {
+    const query = { '_id': new ObjectId(id) }
+    const recipe = recipeCollection.findOne(query)
+    return recipe
+}
+
 const getRecipes = async username => {
-    const query = { username };
-    const cursor = recipeCollection.find(query);
-    return cursor.toArray();
+    const query = { username }
+    const cursor = recipeCollection.find(query)
+    return cursor.toArray()
 }
 
 const addRecipe = async recipe => {
@@ -40,9 +47,14 @@ const addRecipe = async recipe => {
     }
 }
 
+const deleteRecipe = async (username, id) => {
+    const query = { username, '_id': new ObjectId(id) }
+    await recipeCollection.deleteOne(query)
+}
+
 const clear = async username => {
     const query = { username }
     await recipeCollection.deleteMany(query)
 }
 
-module.exports = { test, addRecipe, getRecipes, clear }
+module.exports = { test, addRecipe, getRecipes, getRecipe, clear, deleteRecipe }

@@ -13,6 +13,13 @@ apiRouter.post('/recipe', async (req, res) => {
     res.send({ '_id': id })
 })
 
+apiRouter.post('/delete', async (req, res) => {
+    const username = req.get('Authorization')
+    const id = req.body._id
+    await db.deleteRecipe(username, id)
+    res.send({ success: true })
+})
+
 apiRouter.post('/clear', async (req, res) => {
     const username = req.get('Authorization')
     await db.clear(username)

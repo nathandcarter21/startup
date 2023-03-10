@@ -29,74 +29,49 @@ const loadRecipes = async () => {
 
     container.replaceChildren()
 
-    for (const recipe of userRecipes) {
-        const div = document.createElement('div')
-        div.className += 'recipe'
+    if (userRecipes === null)
+        return
 
-        const h2 = document.createElement('h2')
-        h2.innerText = recipe.name
-
-        const ingredients = document.createElement('div')
-        ingredients.className += 'ingredients'
-
-        const h6 = document.createElement('h6')
-        h6.innerText = 'Ingredients'
-
-        if (recipe.ingredients) {
-            const ul = document.createElement('ul')
-            for (const ingredient of recipe.ingredients) {
-                const li = document.createElement('li')
-                li.innerText = ingredient
-                ul.appendChild(li)
-            }
-            ingredients.replaceChildren(h6, ul)
-        }
-
-        const servings = document.createElement('h4')
-        servings.innerText = `Servings: ${recipe.servings}`
-
-        const calories = document.createElement('h4')
-        calories.innerText = `Calories: ${recipe.calories}`
-
-        const type = document.createElement('h4')
-        type.innerText = recipe.type
-
-        const footer = document.createElement('div')
-        footer.className += 'recipeFooter'
-
-        const a = document.createElement('a')
-        a.innerText = 'Link'
-        a.href = 'recipe.html'
-
-        const span = document.createElement('span')
-        span.innerText = recipe.price
-
-        footer.replaceChildren(a, span)
-
-        div.replaceChildren(h2, ingredients, servings, calories, type, footer)
-
-        container.appendChild(div)
-    }
+    renderRecipes()
 }
 
 loadRecipes()
 
 const filterRecipes = () => {
     const search = document.querySelector('.search').value
+
+    renderRecipes(search)
+}
+
+const clearRecipes = async () => {
+    const username = localStorage.getItem('username')
+
+    try {
+        await fetch('/api/clear', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json', 'Authorization': username }
+        })
+    } catch (e) {
+        console.error(`Error in myrecipes.js: ${e}`)
+    }
+
+    loadRecipes()
+}
+
+const renderRecipes = (search) => {
     const container = document.querySelector('.recipeContainer')
 
     container.replaceChildren()
 
     if (userRecipes === null)
         return
-
     for (const recipe of userRecipes) {
         const div = document.createElement('div')
         div.className += 'recipe'
-
-        if (!recipe.name.toLowerCase().match(search.toLowerCase()))
-            continue
-
+        if (search) {
+            if (!recipe.name.toLowerCase().match(search.toLowerCase()))
+                continue
+        }
         const h2 = document.createElement('h2')
         h2.innerText = recipe.name
 
@@ -123,35 +98,35 @@ const filterRecipes = () => {
         const type = document.createElement('h4')
         type.innerText = recipe.type
 
+        const price = document.createElement('h4')
+        price.innerText = recipe.price
+
         const footer = document.createElement('div')
         footer.className += 'recipeFooter'
 
         const a = document.createElement('a')
-        a.innerText = 'Link'
-        a.href = 'recipe.html'
+        a.innerText = 'Go to recipe'
+        a.href = `myrecipes/${recipe._id}`
 
-        const span = document.createElement('span')
-        span.innerText = recipe.price
+        const del = document.createElement('button')
+        del.innerText = 'Delete'
+        del.addEventListener('click', async () => {
+            try {
+                await fetch('/api/delete', {
+                    method: 'POST',
+                    headers: { 'content-type': 'application/json', 'Authorization': recipe.username },
+                    body: JSON.stringify(recipe)
+                })
+            } catch (e) {
+                console.error(`Error in myrecipes.js: ${e}`)
+            }
+            loadRecipes()
+        })
 
-        footer.replaceChildren(a, span)
+        footer.replaceChildren(a, del)
 
-        div.replaceChildren(h2, ingredients, servings, calories, type, footer)
+        div.replaceChildren(h2, ingredients, servings, calories, type, price, footer)
 
         container.appendChild(div)
     }
-}
-
-const clearRecipes = async () => {
-    const username = localStorage.getItem('username')
-
-    try {
-        await fetch('/api/clear', {
-            method: 'POST',
-            headers: { 'content-type': 'application/json', 'Authorization': username }
-        })
-    } catch (e) {
-        console.error(`Error in myrecipes.js: ${e}`)
-    }
-
-    loadRecipes()
 }
