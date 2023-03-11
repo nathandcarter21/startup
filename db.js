@@ -21,7 +21,7 @@ const userCollection = client.db('startup').collection('user')
 
 const register = async (username, password, uuid) => {
     try {
-        res = await userCollection.insertOne({ username, password, uuid })
+        res = await userCollection.insertOne({ username, password, authtoken: uuid })
         return res.insertedId
     } catch (e) {
         console.error(`Something went wrong: ${e}`)
@@ -29,10 +29,12 @@ const register = async (username, password, uuid) => {
     }
 }
 
-const getPassword = async username => {
-    const query = { username }
-    const user = userCollection.findOne(query)
-    return user
+const getUser = async username => {
+    return await userCollection.findOne({ username })
+}
+
+const getUserWithAuthtoken = async authtoken => {
+    return await userCollection.findOne({ authtoken })
 }
 
 const getRecipe = async (id) => {
@@ -67,4 +69,4 @@ const clear = async username => {
     await recipeCollection.deleteMany(query)
 }
 
-module.exports = { addRecipe, getRecipes, getRecipe, clear, deleteRecipe, register, getPassword }
+module.exports = { addRecipe, getRecipes, getRecipe, clear, deleteRecipe, register, getUser, getUserWithAuthtoken }

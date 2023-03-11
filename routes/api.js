@@ -14,30 +14,37 @@ apiRouter.get('/myrecipes', async (req, res) => {
 
 apiRouter.post('/register', async (req, res) => {
     const { username, password } = req.body
-    console.log(username, password)
-    const authtoken = uuid.v4()
 
-    bcrypt.hash(password, 8, async (err, hash) => {
-        await db.register(username, hash, authtoken)
-    })
+    if (await db.getUser(username)) {
+        res.status(409).send({ msg: 'Existing user' })
+    } else {
+        const authtoken = uuid.v4()
 
-    res.send({ authtoken })
+        bcrypt.hash(password, 8, async (err, hash) => {
+            await db.register(username, hash, authtoken)
+        })
+
+        res.send({ authtoken })
+    }
 })
 
 apiRouter.post('/login', async (req, res) => {
     const { username, password } = req.body
 
-    const retrieved = await db.getPassword(username)
+    const retrieved = await db.getUser(username)
 
     if (retrieved && retrieved.password) {
-        bcrypt.compare(password, retrieved.password, function (err, valid) {
-            if (valid === true) {
-                res.send(JSON.stringify(retrieved))
-                return
-            }
-        });
-    }
-    res.send({ 'success': 'fail' })
+        bcrypt.compare(password, retrieved.password, async function (err, valid) {
+            if (valid)
+                res.send({
+                    'authtoken': retrieved.authtoken,
+                    'username': retrieved.username
+                })
+            else
+                res.status(401).send({ msg: 'Unauthorized' });
+        })
+    } else
+        res.status(401).send({ msg: 'Unauthorized' });
 })
 
 apiRouter.post('/recipe', async (req, res) => {

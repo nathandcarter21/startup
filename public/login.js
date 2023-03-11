@@ -10,7 +10,7 @@ const login = async () => {
     let authtoken = undefined
 
     try {
-        const res = await fetch('/api/register', {
+        const res = await fetch('/api/login', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(user),
