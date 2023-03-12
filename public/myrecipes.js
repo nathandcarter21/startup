@@ -1,25 +1,29 @@
 let userRecipes = []
 
-const verifyUser = () => {
-    const username = localStorage.getItem('username')
-    if (username === null || username === undefined || username === '')
-        window.location.href = 'index.html'
-}
+// const verifyUser = () => {
+//     const username = localStorage.getItem('username')
+//     if (username === null || username === undefined || username === '')
+//         window.location.href = 'index.html'
+// }
 
-verifyUser()
+// verifyUser()
 
 const loadRecipes = async () => {
     const container = document.querySelector('.recipeContainer')
 
     let recipes = undefined
 
-    const username = localStorage.getItem('username')
+    // const username = localStorage.getItem('username')
 
     try {
         const res = await fetch('/api/myrecipes', {
             method: 'GET',
-            headers: { 'content-type': 'application/json', 'Authorization': username }
+            headers: { 'content-type': 'application/json' }
         })
+        if (res.status === 401) {
+            window.location.href = 'index.html'
+            return
+        }
         recipes = await res.json()
     } catch (e) {
         console.error(`Error in myrecipes.js: ${e}`)

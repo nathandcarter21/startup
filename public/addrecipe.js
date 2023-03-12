@@ -1,10 +1,10 @@
-const verifyUser = () => {
-    const username = localStorage.getItem('username')
-    if (username === null || username === undefined || username === '')
-        window.location.href = 'index.html'
-}
+// const verifyUser = () => {
+//     const username = localStorage.getItem('username')
+//     if (username === null || username === undefined || username === '')
+//         window.location.href = 'index.html'
+// }
 
-verifyUser()
+// verifyUser()
 
 const addRecipe = async () => {
     const name = document.querySelector('#name').value

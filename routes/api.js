@@ -1,50 +1,16 @@
-const express = require("express");
-const apiRouter = express.Router();
+const express = require("express")
 const db = require('../db')
-const uuid = require('uuid')
-
-const bcrypt = require('bcryptjs')
-
+const apiRouter = express.Router()
 
 apiRouter.get('/myrecipes', async (req, res) => {
-    const username = req.get('Authorization')
-    const recipes = await db.getRecipes(username)
-    res.send(JSON.stringify(recipes))
-})
-
-apiRouter.post('/register', async (req, res) => {
-    const { username, password } = req.body
-
-    if (await db.getUser(username)) {
-        res.status(409).send({ msg: 'Existing user' })
+    const authtoken = req.cookies['authtoken']
+    const user = await db.getUserWithAuthtoken(authtoken)
+    if (user) {
+        const recipes = await db.getRecipes(user.username)
+        res.send(JSON.stringify(recipes))
     } else {
-        const authtoken = uuid.v4()
-
-        bcrypt.hash(password, 8, async (err, hash) => {
-            await db.register(username, hash, authtoken)
-        })
-
-        res.send({ authtoken })
+        res.status(401).send({ msg: 'Unauthorized' })
     }
-})
-
-apiRouter.post('/login', async (req, res) => {
-    const { username, password } = req.body
-
-    const retrieved = await db.getUser(username)
-
-    if (retrieved && retrieved.password) {
-        bcrypt.compare(password, retrieved.password, async function (err, valid) {
-            if (valid)
-                res.send({
-                    'authtoken': retrieved.authtoken,
-                    'username': retrieved.username
-                })
-            else
-                res.status(401).send({ msg: 'Unauthorized' });
-        })
-    } else
-        res.status(401).send({ msg: 'Unauthorized' });
 })
 
 apiRouter.post('/recipe', async (req, res) => {

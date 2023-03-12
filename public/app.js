@@ -48,5 +48,4 @@ const setUsername = () => {
     dropdownNav.replaceChildren(myRecipes, logoutBtn)
 }
 
-
 setUsername()
