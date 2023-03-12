@@ -1,19 +1,9 @@
 let userRecipes = []
 
-// const verifyUser = () => {
-//     const username = localStorage.getItem('username')
-//     if (username === null || username === undefined || username === '')
-//         window.location.href = 'index.html'
-// }
-
-// verifyUser()
-
 const loadRecipes = async () => {
     const container = document.querySelector('.recipeContainer')
 
     let recipes = undefined
-
-    // const username = localStorage.getItem('username')
 
     try {
         const res = await fetch('/api/myrecipes', {
@@ -38,8 +28,6 @@ const loadRecipes = async () => {
 
     renderRecipes()
 }
-
-loadRecipes()
 
 const filterRecipes = () => {
     const search = document.querySelector('.search').value
@@ -118,7 +106,7 @@ const renderRecipes = (search) => {
             try {
                 await fetch('/api/delete', {
                     method: 'POST',
-                    headers: { 'content-type': 'application/json', 'Authorization': recipe.username },
+                    headers: { 'content-type': 'application/json' },
                     body: JSON.stringify(recipe)
                 })
             } catch (e) {
@@ -134,3 +122,61 @@ const renderRecipes = (search) => {
         container.appendChild(div)
     }
 }
+
+const logout = async () => {
+    const res = await fetch('/auth/logout', {
+        method: 'DELETE',
+        headers: { 'content-type': 'application/json' }
+    })
+
+    window.location.href = 'index.html'
+    const account = document.querySelector('.account')
+    account.innerText = 'Account'
+
+    const dropdownNav = document.querySelector('.dropdownNav')
+
+    const login = document.createElement('a')
+    login.innerText = 'Login'
+    login.href = 'login.html'
+    login.className += 'block'
+
+    dropdownNav.replaceChildren(login)
+}
+
+const getUser = async () => {
+    const res = await fetch('/auth/user', {
+        method: 'GET',
+        headers: { 'content-type': 'application/json' }
+    })
+
+    if (res.status === 404) {
+        window.location.href = 'index.html'
+        return
+    }
+
+    const user = await res.json()
+    username = user
+
+    const account = document.querySelector('.account')
+    const dropdownNav = document.querySelector('.dropdownNav')
+
+    account.innerText = username
+
+
+    const myRecipes = document.createElement('a')
+    myRecipes.innerText = 'My Recipes'
+    myRecipes.href = 'myrecipes.html'
+    myRecipes.className += 'block'
+
+    const logoutBtn = document.createElement('a')
+    logoutBtn.innerText = 'Log Out'
+    logoutBtn.href = '#'
+    logoutBtn.className += 'block'
+    logoutBtn.addEventListener('click', logout)
+
+    dropdownNav.replaceChildren(myRecipes, logoutBtn)
+
+    loadRecipes()
+}
+
+getUser()

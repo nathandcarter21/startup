@@ -14,21 +14,38 @@ apiRouter.get('/myrecipes', async (req, res) => {
 })
 
 apiRouter.post('/recipe', async (req, res) => {
-    const id = await db.addRecipe(req.body)
-    res.send({ '_id': id })
+    const authtoken = req.cookies['authtoken']
+    const user = await db.getUserWithAuthtoken(authtoken)
+    if (user) {
+        req.body.username = user.username
+        const id = await db.addRecipe(req.body)
+        res.send({ '_id': id })
+        return
+    }
+    res.status(404).send({ msg: 'User not found' })
 })
 
 apiRouter.post('/delete', async (req, res) => {
-    const username = req.get('Authorization')
-    const id = req.body._id
-    await db.deleteRecipe(username, id)
-    res.send({ success: true })
+    const authtoken = req.cookies['authtoken']
+    const user = await db.getUserWithAuthtoken(authtoken)
+    if (user) {
+        const id = req.body._id
+        await db.deleteRecipe(user.username, id)
+        res.send({ success: true })
+        return
+    }
+    res.status(404).send({ msg: 'User not found' })
 })
 
 apiRouter.post('/clear', async (req, res) => {
-    const username = req.get('Authorization')
-    await db.clear(username)
-    res.send({ success: true })
+    const authtoken = req.cookies['authtoken']
+    const user = await db.getUserWithAuthtoken(authtoken)
+    if (user) {
+        await db.clear(user.username)
+        res.send({ success: true })
+        return
+    }
+    res.status(404).send({ msg: 'User not found' })
 })
 
 module.exports = apiRouter 

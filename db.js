@@ -16,6 +16,7 @@ if (!userName) {
 const url = `mongodb+srv://${userName}:${password}@${hostname}`
 
 const client = new MongoClient(url)
+
 const recipeCollection = client.db('startup').collection('recipe')
 const userCollection = client.db('startup').collection('user')
 

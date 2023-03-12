@@ -5,6 +5,16 @@ const bcrypt = require('bcryptjs')
 
 const authRouter = express.Router()
 
+authRouter.get('/user', async (req, res) => {
+    const authtoken = req.cookies['authtoken']
+    if (authtoken) {
+        const user = await db.getUserWithAuthtoken(authtoken)
+        res.send(JSON.stringify(user.username))
+        return
+    }
+    res.status(404).send({ msg: 'Unknown' })
+})
+
 authRouter.post('/register', async (req, res) => {
     const { username, password } = req.body
 
@@ -38,20 +48,10 @@ authRouter.post('/login', async (req, res) => {
         res.status(401).send({ msg: 'Unauthorized' })
 })
 
-authRouter.delete('/auth/logout', (_req, res) => {
-    res.clearCookie(authCookieName)
+authRouter.delete('/logout', (_req, res) => {
+    res.clearCookie('authtoken')
     res.status(204).end()
 })
-
-authRouter.get('/user/:username', async (req, res) => {
-    const user = await db.getUser(req.params.username)
-    if (user) {
-        const token = req?.cookies.token
-        res.send({ email: user.email, authenticated: token === user.token })
-        return
-    }
-    res.status(404).send({ msg: 'Unknown' })
-});
 
 
 function setAuthCookie(res, authToken) {
