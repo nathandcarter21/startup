@@ -25,6 +25,19 @@ apiRouter.post('/recipe', async (req, res) => {
     res.status(404).send({ msg: 'User not found' })
 })
 
+apiRouter.get('/search/:query', async (req, res) => {
+    fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.APIKEY}&query=${req.params.query}`, {
+        method: 'GET',
+        headers: { 'content-type': 'application/json' }
+    }).then(data => {
+        return data.json()
+    }).then(result => {
+        res.send(result.results)
+    }).catch(() => {
+        res.status(404).send({ msg: 'Failed' })
+    })
+})
+
 apiRouter.post('/delete', async (req, res) => {
     const authtoken = req.cookies['authtoken']
     const user = await db.getUserWithAuthtoken(authtoken)
@@ -47,5 +60,20 @@ apiRouter.post('/clear', async (req, res) => {
     }
     res.status(404).send({ msg: 'User not found' })
 })
+
+apiRouter.get('/:id', async (req, res) => {
+    const id = req.params.id
+    fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${process.env.APIKEY}`, {
+        method: 'GET',
+        headers: { 'content-type': 'application/json' }
+    }).then(data => {
+        return data.json()
+    }).then(result => {
+        res.send(result)
+    }).catch(() => {
+        res.status(404).send({ msg: 'Failed' })
+    })
+})
+
 
 module.exports = apiRouter 
